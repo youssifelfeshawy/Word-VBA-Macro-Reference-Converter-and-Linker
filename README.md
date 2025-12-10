@@ -1,6 +1,11 @@
-# Word VBA Macro: Reference Converter and Linker
+# Word VBA Macros: Reference Converter and Linker
 
-This repository contains a VBA macro for Microsoft Word that automates the process of converting URLs and DOIs to clickable hyperlinks and linking in-text citations to their corresponding references in the bibliography.
+This repository contains VBA macros for Microsoft Word that automate the process of converting URLs and DOIs to clickable hyperlinks and linking in-text citations to their corresponding references in the bibliography.
+
+The repository includes three files:
+- `ConvertURLsAndDOIsToHyperlinks.bas`: The original macro for converting URLs and DOIs to hyperlinks.
+- `LinkCitationsToURLs.bas`: The original macro for linking citations to URLs/DOIs in the bibliography.
+- `ConvertAndLinkReferences.bas`: The merged macro that combines the functionality of the two above into a single subroutine.
 
 ## Features
 
@@ -19,21 +24,20 @@ This repository contains a VBA macro for Microsoft Word that automates the proce
 
 1. Open Microsoft Word.
 2. Press `Alt + F11` to open the Visual Basic for Applications (VBA) editor.
-3. In the VBA editor, go to Insert > Module to create a new module.
-4. Copy and paste the code from `ConvertAndLinkReferences.bas` (or directly from this README) into the module.
-5. Save the module (e.g., as part of your Normal.dotm template for global access).
-6. Close the VBA editor.
+3. In the VBA editor, go to File > Import File and select the desired .bas file(s) from this repository to import the module(s).
+4. Save the module(s) (e.g., as part of your Normal.dotm template for global access).
+5. Close the VBA editor.
 
-Alternatively, you can import the `.bas` file directly into the VBA editor via File > Import File.
+You can import all three files if you want access to the individual macros and the merged version, or just the merged one for combined functionality.
 
 ## Usage
 
 1. Open your Word document containing URLs, DOIs, and citations.
 2. If you want to process only a section (e.g., the bibliography), select that text first.
 3. Go to Developer > Macros (if the Developer tab isn't visible, enable it in File > Options > Customize Ribbon).
-4. Select `ConvertAndLinkReferences` and click Run.
+4. Select the desired macro (e.g., `ConvertAndLinkReferences` for the merged version) and click Run.
 5. A dialog will ask if you want to process selected text (Yes) or the entire document (No).
-6. The macro will run, converting URLs/DOIs and linking citations.
+6. The macro will run, converting URLs/DOIs and linking citations (for the linking macros).
 7. A completion message will show the number of conversions and links made.
 
 ### Document Structure Assumptions
@@ -48,10 +52,10 @@ If your document uses a different format, you may need to modify the regex patte
 
 ## Limitations
 
-- The macro uses regular expressions, which may need tweaking for custom formats.
-- It loops to handle multiple matches but may be slow on very large documents.
+- The macros use regular expressions, which may need tweaking for custom formats.
+- They loop to handle multiple matches but may be slow on very large documents.
 - No error handling for invalid DOIs or URLs; assumes well-formatted input.
-- Does not handle citations with ranges (e.g., [1-3]) or non-numeric citations.
+- Do not handle citations with ranges (e.g., [1-3]) or non-numeric citations.
 
 ## Contributing
 
